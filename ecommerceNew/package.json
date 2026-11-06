@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-new",
+  "version": "1.0.0",
+  "description": "E-Commerce Web Application (Frontend & Backend)",
+  "private": true,
+  "scripts": {
+    "install:frontend": "npm install --prefix my-project",
+    "install:backend": "npm install --prefix my-project/backend",
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "dev:frontend": "npm run dev --prefix my-project",
+    "dev:backend": "npm run dev --prefix my-project/backend",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build:frontend": "npm run build --prefix my-project",
+    "start:backend": "npm start --prefix my-project/backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

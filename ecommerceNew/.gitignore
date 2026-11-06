@@ -1,0 +1,10 @@
+# Node dependencies
+**/node_modules/
+
+# Build folders
+**/dist/
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
