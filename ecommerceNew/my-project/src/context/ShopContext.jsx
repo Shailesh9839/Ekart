@@ -266,7 +266,7 @@ export const ShopProvider = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/products')
+        const response = await fetch('https://ekart-3eka.onrender.com')
         if (response.ok) {
           const data = await response.json()
           setProducts(data)

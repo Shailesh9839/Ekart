@@ -277,6 +277,10 @@ app.get('/api/products', async (req, res) => {
     res.status(500).json({ error: 'Database error fetching products' });
   }
 });
+app.use(cors({
+  origin: "https://ekart-bv2u.vercel.app",
+  credentials: true
+}));
 
 // API: Get product by id from SQLite Database
 app.get('/api/products/:id', async (req, res) => {
