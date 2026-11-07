@@ -263,20 +263,29 @@ export const ShopProvider = ({ children }) => {
   }, [wishlist])
 
   // Fetch products from backend API, with fallback to static products
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://ekart-3eka.onrender.com')
-        if (response.ok) {
-          const data = await response.json()
-          setProducts(data)
-        }
-      } catch (err) {
-        console.warn('Backend API products unavailable, falling back to static products.', err)
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(
+        'https://ekart-3eka.onrender.com/api/products'
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
       }
+
+      const data = await response.json();
+      setProducts(data);
+
+      console.log('Products loaded:', data);
+    } catch (err) {
+      console.error('Failed to fetch products:', err);
+      console.warn('Using static products as fallback.');
     }
-    fetchProducts()
-  }, [])
+  };
+
+  fetchProducts();
+}, []);
 
   // Custom alert notifications trigger
   const showNotification = (message, type = 'success') => {
